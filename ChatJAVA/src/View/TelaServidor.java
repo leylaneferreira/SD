@@ -2,6 +2,7 @@ package View;
 
 import Control.EsperaNovaConexao;
 import Control.AES;
+import Control.Person;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintStream;
@@ -21,6 +22,7 @@ public class TelaServidor extends javax.swing.JFrame {
     ServerSocket socketServidor;
     ArrayList<PrintStream> streamsSaida;
     ArrayList<InputStream> streamsEntrada;
+    Person pessoa;
 
     public TelaServidor() throws IOException {
         initComponents();
@@ -30,6 +32,7 @@ public class TelaServidor extends javax.swing.JFrame {
         this.setTitle("Chat Servidor");
         streamsSaida = new ArrayList<>();
         streamsEntrada = new ArrayList<>();
+        pessoa = new Person();
     }
 
     @SuppressWarnings("unchecked")
@@ -117,17 +120,14 @@ public class TelaServidor extends javax.swing.JFrame {
     private void jButtonEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEnviarActionPerformed
 
         try {
-            String mensagem = "Servidor disse: " + jTextFieldMensagem.getText();
-            AES cript = new AES(mensagem);
-            byte[] enviar = cript.encrypt();
-
+            
             for (int i = 0; i < streamsSaida.size(); i++) {
                 //streamsSaida.get(i).println("Servidor disse: " + jTextFieldMensagem.getText());
-                streamsSaida.get(i).write(enviar);
+                //streamsSaida.get(i).write(enviar);
+                pessoa.enviar(streamsSaida.get(i), jTextFieldMensagem.getText());
             }
-            //atualiza area da conversa
+
             jTextAreaChat.setText(jTextAreaChat.getText() + "\nTu disseste: " + jTextFieldMensagem.getText());
-            //zerando aera da mensagem a ser enviada
             jTextFieldMensagem.setText("");
 
         } catch (Exception e) {

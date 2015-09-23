@@ -27,10 +27,11 @@ public class RecebeMensagem extends Thread {
         try {
             Scanner s = new Scanner(socket.getInputStream());
             while (s.hasNextLine()) {
-                String encriptado = s.nextLine();
-                System.out.println(encriptado);
-                AES seguranca = new AES(null);
-                String resultado = seguranca.decrypt(encriptado.getBytes());
+//                String encriptado = s.nextLine();
+  //              System.out.println(encriptado);
+    //            AES seguranca = new AES(null);
+      //          String resultado = seguranca.decrypt(encriptado.getBytes());
+                String resultado = s.nextLine();
                 areaTexto.setText(areaTexto.getText() + "\n" + resultado);
             }
 

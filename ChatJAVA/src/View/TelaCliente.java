@@ -1,19 +1,13 @@
 package View;
 
+import Control.Person;
 import Control.RecebeMensagem;
-import java.awt.event.ActionEvent;
-import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.net.Socket;
-import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.AbstractAction;
-import javax.swing.InputMap;
-import javax.swing.JComponent;
 import javax.swing.JOptionPane;
-import javax.swing.KeyStroke;
 
 /**
  * Classe para a tela de chat de um cliente.
@@ -23,6 +17,7 @@ public class TelaCliente extends javax.swing.JFrame {
 
     Socket socket;
     PrintStream streamSaida;
+    Person pessoa;
 
     public TelaCliente() throws IOException {
         initComponents();
@@ -30,25 +25,9 @@ public class TelaCliente extends javax.swing.JFrame {
         jTextFieldMensagem.setVisible(false);
         jButtonEnviar.setVisible(false);
         this.setTitle("Chat Cliente");
-        mapaCliqueEnter();
+        pessoa = new Person();
     }
 
-    private void mapaCliqueEnter() {
-
-        InputMap inputMap = this.getRootPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
-        inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0), "forward");
-        this.getRootPane().setInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW, inputMap);
-        this.getRootPane().getActionMap().put("forward", new AbstractAction() {
-            private static final long serialVersionUID = 1L;
-
-            @Override
-            public void actionPerformed(ActionEvent arg0) {
-                System.out.println("ENTER foi pressionado");
-                jButtonEnviar.doClick();
-            }
-
-        });
-    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -153,7 +132,7 @@ public class TelaCliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEnviarActionPerformed
-        this.streamSaida.println("Alguém disse: " + jTextFieldMensagem.getText());
+        pessoa.enviar(streamSaida, jTextFieldMensagem.getText());        
         jTextAreaChat.setText(jTextAreaChat.getText() + "\nTu disseste: " + jTextFieldMensagem.getText());
         jTextFieldMensagem.setText("");
     }//GEN-LAST:event_jButtonEnviarActionPerformed
