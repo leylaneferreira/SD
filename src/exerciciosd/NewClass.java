@@ -5,6 +5,7 @@
  */
 package exerciciosd;
 
+import Model.BancoDeDados;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -19,7 +20,7 @@ public class NewClass {
         try {
             BancoDeDados bd = new BancoDeDados();
             bd.abrirConexao();
-            boolean retorno = bd.gravarUsuario("ley", "iag");
+            boolean retorno = bd.gravarUsuario("iag", "ley123");
             System.out.println(retorno);
             bd.fecharConexao();
         } catch (Exception e) {
