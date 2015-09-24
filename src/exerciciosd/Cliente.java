@@ -10,7 +10,6 @@ import java.net.DatagramPacket;
 import java.net.*;
 
 /**
- *
  * @author Leylane
  */
 public class Cliente {
