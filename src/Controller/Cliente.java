@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package exerciciosd;
+package Controller;
 
 import java.io.IOException;
 import java.net.DatagramPacket;
@@ -22,7 +22,7 @@ public class Cliente {
             String ip = "255.255.255.255";
             String mensagem = "queroentrar";
             byte msg[] = mensagem.getBytes();
-            int porta = 12345;
+            int porta = 12344;
             InetAddress ina = InetAddress.getByName(ip);
 
             DatagramPacket dp = new DatagramPacket(msg, msg.length, ina, porta);
@@ -31,19 +31,12 @@ public class Cliente {
             byte[] receive = new byte[1024];
             DatagramPacket recebendo = new DatagramPacket(receive, receive.length, ina, porta);
             conexaoUDP.receive(recebendo);
-
-            Socket conexaoTCP = new Socket(recebendo.getAddress(), porta);
-            System.out.println("conectado");
             
+            System.out.println(recebendo.getAddress());
             conexaoUDP.close();
-            conexaoTCP.close();
-            
-            
-            
-            
             
         } catch (Exception e) {
-
+            e.printStackTrace();
         }
     }
 

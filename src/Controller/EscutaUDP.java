@@ -12,12 +12,12 @@ import javax.swing.JTextArea;
 /**
  * @author Iago Rodrigues
  */
-public class EsperaNovaConexao extends Thread {
+public class EscutaUDP extends Thread {
 
     ServerSocket serverTCP;
     DatagramSocket serverUDP;
 
-    public EsperaNovaConexao(ServerSocket serverTCP, DatagramSocket serverUDP) {
+    public EscutaUDP(ServerSocket serverTCP, DatagramSocket serverUDP) {
         this.serverTCP = serverTCP;
         this.serverUDP = serverUDP;
     }
@@ -40,11 +40,8 @@ public class EsperaNovaConexao extends Thread {
                 serverUDP.close();
                 
                 //esperar conexão TCP com cliente
-                int portaTCP = 12345;
-                Socket conexao = serverTCP.accept();
-            
-                RecebeMensagem recebimento = new RecebeMensagem(conexao);
-                recebimento.start();
+                EscutaTCP esperaConexaoTCP = new EscutaTCP(serverTCP);
+                esperaConexaoTCP.start();
             }
             
         } catch (Exception e) {

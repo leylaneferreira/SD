@@ -11,7 +11,7 @@ public class Servidor {
         ServerSocket serverTCP = new ServerSocket(12345);
         DatagramSocket serverUDP = null;
                 
-        EsperaNovaConexao esperarConexoes = new EsperaNovaConexao(serverTCP, serverUDP);
+        EscutaUDP esperarConexoes = new EscutaUDP(serverTCP, serverUDP);
         esperarConexoes.start();
         
     }

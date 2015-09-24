@@ -13,11 +13,11 @@ import Controller.ControleBD;
  */
 public class TelaLogin extends javax.swing.JFrame {
 
-    /**
-     * Creates new form TelaLogin
-     */
+    String serverIP;
+    
     public TelaLogin() {
         initComponents();
+        
     }
 
     /**
