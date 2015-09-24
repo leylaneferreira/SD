@@ -1,4 +1,4 @@
-package exerciciosd;
+package Controller;
 
 import java.io.InputStream;
 import java.io.PrintStream;

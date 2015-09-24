@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package exerciciosd;
+package View;
 
 /**
  *
@@ -33,7 +33,6 @@ public class TelaChat extends javax.swing.JFrame {
         button1 = new java.awt.Button();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(710, 451));
         setResizable(false);
 
         button1.setLabel("Enviar");
