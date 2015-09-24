@@ -28,14 +28,14 @@
               <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="textField1" min="-2" pref="489" max="-2" attributes="0"/>
+                      <Component id="mensagemTextField" min="-2" pref="489" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="button1" max="32767" attributes="0"/>
+                      <Component id="enviarButton" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
-                      <Component id="list1" min="-2" pref="149" max="-2" attributes="0"/>
+                      <Component id="disponiveisList" min="-2" pref="149" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
-                      <Component id="textArea1" min="-2" pref="396" max="-2" attributes="0"/>
+                      <Component id="textoEnviadotextArea" min="-2" pref="396" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="20" max="32767" attributes="0"/>
@@ -47,13 +47,13 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="list1" pref="300" max="32767" attributes="0"/>
-                  <Component id="textArea1" max="32767" attributes="0"/>
+                  <Component id="disponiveisList" pref="300" max="32767" attributes="0"/>
+                  <Component id="textoEnviadotextArea" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="textField1" max="32767" attributes="0"/>
-                  <Component id="button1" min="-2" pref="43" max="-2" attributes="0"/>
+                  <Component id="mensagemTextField" max="32767" attributes="0"/>
+                  <Component id="enviarButton" min="-2" pref="43" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="18" max="32767" attributes="0"/>
           </Group>
@@ -61,13 +61,13 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="java.awt.List" name="list1">
+    <Component class="java.awt.List" name="disponiveisList">
     </Component>
-    <Component class="java.awt.TextArea" name="textArea1">
+    <Component class="java.awt.TextArea" name="textoEnviadotextArea">
     </Component>
-    <Component class="java.awt.TextField" name="textField1">
+    <Component class="java.awt.TextField" name="mensagemTextField">
     </Component>
-    <Component class="java.awt.Button" name="button1">
+    <Component class="java.awt.Button" name="enviarButton">
       <Properties>
         <Property name="label" type="java.lang.String" value="Enviar"/>
       </Properties>
