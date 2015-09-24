@@ -34,9 +34,13 @@ public class Cliente {
 
             Socket conexaoTCP = new Socket(recebendo.getAddress(), porta);
             System.out.println("conectado");
-
+            
             conexaoUDP.close();
             conexaoTCP.close();
+            
+            
+            
+            
             
         } catch (Exception e) {
 
