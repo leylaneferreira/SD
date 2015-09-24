@@ -5,6 +5,8 @@
  */
 package View;
 
+import Controller.ControleBD;
+
 /**
  *
  * @author Iago Rodrigues
@@ -39,6 +41,11 @@ public class TelaLogin extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         loginjTextField.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        loginjTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginjTextFieldActionPerformed(evt);
+            }
+        });
 
         senhajTextField.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
 
@@ -58,6 +65,11 @@ public class TelaLogin extends javax.swing.JFrame {
 
         loginjButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         loginjButton.setText("Login");
+        loginjButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginjButtonActionPerformed(evt);
+            }
+        });
 
         label1.setFont(new java.awt.Font("Trebuchet MS", 0, 36)); // NOI18N
         label1.setText("Acesso ao Chat");
@@ -118,11 +130,28 @@ public class TelaLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cadastrojButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrojButtonActionPerformed
-        // TODO add your handling code here:
         TelaCadastro tela = new TelaCadastro();
         tela.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_cadastrojButtonActionPerformed
+
+    private void loginjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginjButtonActionPerformed
+        ControleBD controle = new ControleBD();
+        if (controle.login(loginjTextField.getText(), senhajTextField.getText())) {
+            TelaChat chat = new TelaChat();
+            this.setVisible(false);
+            chat.setVisible(true);
+        }
+        else{
+            loginjTextField.setText("");
+            senhajTextField.setText("");
+        }
+
+    }//GEN-LAST:event_loginjButtonActionPerformed
+
+    private void loginjTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginjTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_loginjTextFieldActionPerformed
 
     /**
      * @param args the command line arguments

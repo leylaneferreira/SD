@@ -135,7 +135,7 @@ public class TelaCadastro extends javax.swing.JFrame {
         //primeiro cadastra
         
         ControleBD controle = new ControleBD();
-        
+        controle.gravar(usuariojTextField.getText(), senhajTextField.getText());
         
         TelaLogin login = new TelaLogin();
         this.setVisible(false);

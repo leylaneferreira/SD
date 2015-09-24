@@ -20,7 +20,7 @@ public class NewClass {
         try {
             BancoDeDados bd = new BancoDeDados();
             bd.abrirConexao();
-            boolean retorno = bd.logarUsuario("iadg", "ley123");
+            boolean retorno = bd.gravarUsuario("iag", "ley123");
             System.out.println(retorno);
             bd.fecharConexao();
         } catch (Exception e) {
