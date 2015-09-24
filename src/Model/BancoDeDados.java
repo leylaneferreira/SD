@@ -3,7 +3,7 @@ package Model;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.Statement;
+import java.sql.ResultSet;
 
 /**
  *
@@ -32,12 +32,12 @@ public class BancoDeDados {
             return false;
         }
     }
-    
+
     public boolean gravarUsuario(String nome, String senha) {
         try {
             PreparedStatement stmt = conn.prepareStatement(""
                     + "INSERT INTO USUARIO (NOME_USUARIO,SENHA) values (?,?)");
-            stmt.setString(1, nome);  
+            stmt.setString(1, nome);
             stmt.setString(2, senha);
             stmt.executeUpdate();
             stmt.close();
@@ -48,4 +48,22 @@ public class BancoDeDados {
         }
     }
 
-}
+    public boolean logarUsuario(String nome, String senha) {
+
+        PreparedStatement ps;
+
+        try {
+            ps = conn.prepareStatement("SELECT SENHA FROM USUARIO WHERE NOME_USUARIO = ? AND SENHA = ?");
+            ps.setString(1, nome);
+            ps.setString(2, senha);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next() == true) {
+                return true;
+            } 
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+        return false;
+    }

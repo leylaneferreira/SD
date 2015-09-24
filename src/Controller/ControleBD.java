@@ -26,4 +26,16 @@ public class ControleBD {
         }
     }
 
+    public String login(String nome, String senha) {
+        try {
+            bd.abrirConexao();
+            bd.logarUsuario(nome, senha);
+            bd.fecharConexao();
+            return "Login realizado com sucesso.";
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "Erro ao tentar fazer o login.";
+        }
+    }
+
 }
