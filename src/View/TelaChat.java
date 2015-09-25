@@ -5,17 +5,24 @@
  */
 package View;
 
+import Controller.ControleCliente;
+import java.io.OutputStream;
+import java.net.Socket;
+
 /**
  *
  * @author Iago Rodrigues
  */
 public class TelaChat extends javax.swing.JFrame {
 
-    /**
-     * Creates new form TelaChat
-     */
-    public TelaChat() {
+    ControleCliente cliente;
+    Socket conexao;
+
+    public TelaChat(ControleCliente novoCliente, Socket conexao) {
         initComponents();
+        this.conexao = conexao;
+        this.cliente = novoCliente;
+        inicio();
     }
 
     /**
@@ -37,6 +44,11 @@ public class TelaChat extends javax.swing.JFrame {
 
         enviarButton.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
         enviarButton.setLabel("Enviar");
+        enviarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                enviarButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -71,6 +83,19 @@ public class TelaChat extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void enviarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarButtonActionPerformed
+        try {
+            OutputStream os = conexao.getOutputStream();
+            os.write(cliente.getNomeCliente().getBytes());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_enviarButtonActionPerformed
+
+    private void inicio() {
+        disponiveisList.add(cliente.getNomeCliente(), 0);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.List disponiveisList;

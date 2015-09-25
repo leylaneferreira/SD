@@ -5,7 +5,7 @@
  */
 package View;
 
-import Controller.Cliente;
+import Controller.ControleCliente;
 
 /**
  *
@@ -13,7 +13,7 @@ import Controller.Cliente;
  */
 public class TelaBoasVindas extends javax.swing.JFrame {
 
-    Cliente pessoa;
+    ControleCliente pessoa;
     
     public TelaBoasVindas() {
         initComponents();
@@ -69,8 +69,8 @@ public class TelaBoasVindas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void inicioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicioButtonActionPerformed
-        pessoa = new Cliente();
-        String serverIP = pessoa.getIP();
+        pessoa = new ControleCliente();
+        String serverIP = pessoa.getIPServer();
         System.out.println(serverIP);
         TelaLogin login = new TelaLogin(serverIP);
         login.setVisible(true);

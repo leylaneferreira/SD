@@ -1,27 +1,27 @@
 package Controller;
 
-import java.io.PrintStream;
 import java.net.Socket;
-import java.util.ArrayList;
 import java.util.Scanner;
-import javax.swing.JTextArea;
 
 /**
  *
  * @author Iago Rodrigues
  */
-public class RecebeMensagem extends Thread {
+public class ServidorRecebe extends Thread {
 
-    Socket socket;
+    Socket conexao;
 
-    public RecebeMensagem(Socket socket) {
-        this.socket = socket;
+    public ServidorRecebe(Socket conexao) {
+        this.conexao = conexao;
     }
 
     @Override
     public synchronized void run() {
         try {
-            Scanner s = new Scanner(socket.getInputStream());
+            Scanner s = new Scanner(conexao.getInputStream());
+            String nomeCliente = s.nextLine();
+            System.out.println(nomeCliente);
+            
             while (s.hasNextLine()) {
                 //o servidor vai receber uma mensagem e decidir o que irá fazer com ela
             }

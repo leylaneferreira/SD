@@ -12,9 +12,19 @@ import java.net.*;
 /**
  * @author Leylane
  */
-public class Cliente {
+public class ControleCliente {
 
-    public String getIP() {
+    private String nomeCliente;
+    
+    public void setNomeCliente(String nomeCliente){
+        this.nomeCliente = nomeCliente;
+    }
+    
+    public String getNomeCliente(){
+        return nomeCliente;
+    }
+    
+    public String getIPServer() {
         try {
             //código para recebimento de ip
             DatagramSocket conexaoUDP = new DatagramSocket();

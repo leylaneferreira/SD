@@ -21,7 +21,7 @@ public class EscutaTCP extends Thread {
         try {
             int portaTCP = 12345;
             Socket conexao = server.accept();
-            RecebeMensagem recebimento = new RecebeMensagem(conexao);
+            ServidorRecebe recebimento = new ServidorRecebe(conexao);
             recebimento.start();
         } catch (Exception e) {
             e.printStackTrace();
