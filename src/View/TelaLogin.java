@@ -15,13 +15,10 @@ import Controller.ControleBD;
 public class TelaLogin extends javax.swing.JFrame {
 
     private String serverIP;
-    private Cliente pessoa;
-
-    public TelaLogin() {
+    
+    public TelaLogin(String serverIP) {
+        this.serverIP = serverIP;
         initComponents();
-        pessoa = new Cliente();
-        serverIP = pessoa.getIP();
-        System.out.println(serverIP);
     }
 
     /**
@@ -136,15 +133,15 @@ public class TelaLogin extends javax.swing.JFrame {
     private void cadastrojButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrojButtonActionPerformed
         TelaCadastro tela = new TelaCadastro(serverIP);
         tela.setVisible(true);
-        this.setVisible(false);
+        this.dispose();
     }//GEN-LAST:event_cadastrojButtonActionPerformed
 
     private void loginjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginjButtonActionPerformed
         ControleBD controle = new ControleBD(serverIP);
         if (controle.login(loginjTextField.getText(), senhajTextField.getText())) {
             TelaChat chat = new TelaChat();
-            this.setVisible(false);
             chat.setVisible(true);
+            this.dispose();
         } else {
             loginjTextField.setText("");
             senhajTextField.setText("");
@@ -155,41 +152,6 @@ public class TelaLogin extends javax.swing.JFrame {
     private void loginjTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginjTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_loginjTextFieldActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TelaLogin().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cadastrojButton;

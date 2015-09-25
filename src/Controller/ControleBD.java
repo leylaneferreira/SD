@@ -33,6 +33,7 @@ public class ControleBD {
                 bd.fecharConexao();
                 return true;
             }
+            bd.fecharConexao();
             return false;
         } catch (Exception e) {
             e.printStackTrace();
