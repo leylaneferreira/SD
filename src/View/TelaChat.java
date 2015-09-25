@@ -35,6 +35,7 @@ public class TelaChat extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
+        enviarButton.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
         enviarButton.setLabel("Enviar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
