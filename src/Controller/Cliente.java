@@ -14,7 +14,7 @@ import java.net.*;
  */
 public class Cliente {
 
-    public static void main(String[] args) throws SocketException, UnknownHostException, IOException {
+    public String getIP() {
         try {
             //código para recebimento de ip
             DatagramSocket conexaoUDP = new DatagramSocket();
@@ -31,12 +31,15 @@ public class Cliente {
             byte[] receive = new byte[1024];
             DatagramPacket recebendo = new DatagramPacket(receive, receive.length, ina, porta);
             conexaoUDP.receive(recebendo);
-            
-            System.out.println(recebendo.getAddress());
+
+            ip = recebendo.getAddress().toString();
+            ip = ip.substring(1, ip.length()); //removendo a barra
             conexaoUDP.close();
-            
+
+            return ip;
         } catch (Exception e) {
             e.printStackTrace();
+            return "Erro";
         }
     }
 

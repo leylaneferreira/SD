@@ -18,7 +18,7 @@ public class NewClass {
 
     public static void main(String[] args) throws SQLException {
         try {
-            BancoDeDados bd = new BancoDeDados();
+            BancoDeDados bd = new BancoDeDados("IPaqui");
             bd.abrirConexao();
             boolean retorno = bd.gravarUsuario("iag", "ley123");
             System.out.println(retorno);

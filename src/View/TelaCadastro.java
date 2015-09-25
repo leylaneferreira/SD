@@ -1,12 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package View;
 
 import Controller.ControleBD;
-import static sun.security.jgss.GSSUtil.login;
 
 /**
  *
@@ -14,10 +8,14 @@ import static sun.security.jgss.GSSUtil.login;
  */
 public class TelaCadastro extends javax.swing.JFrame {
 
-    /**
-     * Creates new form TelaCadastro
-     */
-    public TelaCadastro() {
+    private String serverIP;
+    
+    public TelaCadastro(String serverIP) {
+        initComponents();
+        this.serverIP = serverIP;
+    }
+    
+    public TelaCadastro(){
         initComponents();
     }
 
@@ -134,7 +132,7 @@ public class TelaCadastro extends javax.swing.JFrame {
     private void cadastrarjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarjButtonActionPerformed
         //primeiro cadastra
         
-        ControleBD controle = new ControleBD();
+        ControleBD controle = new ControleBD(serverIP);
         controle.gravar(usuariojTextField.getText(), senhajTextField.getText());
         
         TelaLogin login = new TelaLogin();

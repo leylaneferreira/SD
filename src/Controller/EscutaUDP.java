@@ -27,7 +27,7 @@ public class EscutaUDP extends Thread {
         try {
             while (true) {
                 int portaUDP = 12344;
-                
+
                 //código do UDP para descoberta do servidor
                 serverUDP = new DatagramSocket(portaUDP);
                 byte recebendo[] = new byte[1024];
@@ -38,12 +38,12 @@ public class EscutaUDP extends Thread {
                 DatagramPacket bufferEnvio = new DatagramPacket(recebendo, recebendo.length, buffer.getAddress(), buffer.getPort());
                 serverUDP.send(bufferEnvio);
                 serverUDP.close();
-                
+
                 //esperar conexão TCP com cliente
                 EscutaTCP esperaConexaoTCP = new EscutaTCP(serverTCP);
                 esperaConexaoTCP.start();
             }
-            
+
         } catch (Exception e) {
             e.printStackTrace();
         }

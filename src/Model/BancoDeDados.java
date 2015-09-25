@@ -11,11 +11,17 @@ import java.sql.ResultSet;
  */
 public class BancoDeDados {
 
-    Connection conn;
+    private Connection conn;
+    private String serverIPDB;
+
+    public BancoDeDados(String serverIPDB) {
+        this.serverIPDB = serverIPDB;
+    }
 
     public boolean abrirConexao() {
         try {
-            conn = DriverManager.getConnection("jdbc:postgresql://192.168.25.4:5432/SD", "postgres", "lidiane");
+            //conn = DriverManager.getConnection("jdbc:postgresql://192.168.25.4:5432/SD", "postgres", "lidiane");
+            conn = DriverManager.getConnection("jdbc:postgresql://" + serverIPDB + ":5432/SD", "postgres", "lidiane");
             return true;
         } catch (Exception e) {
             e.printStackTrace();
@@ -60,10 +66,11 @@ public class BancoDeDados {
 
             while (rs.next() == true) {
                 return true;
-            } 
+            }
         } catch (Exception e) {
             e.printStackTrace();
             return false;
         }
         return false;
     }
+}

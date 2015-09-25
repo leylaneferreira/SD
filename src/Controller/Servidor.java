@@ -10,10 +10,10 @@ public class Servidor {
 
         ServerSocket serverTCP = new ServerSocket(12345);
         DatagramSocket serverUDP = null;
-                
+
         EscutaUDP esperarConexoes = new EscutaUDP(serverTCP, serverUDP);
         esperarConexoes.start();
-        
+
     }
 
 }

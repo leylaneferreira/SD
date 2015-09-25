@@ -8,10 +8,11 @@ import Model.BancoDeDados;
  */
 public class ControleBD {
 
-    BancoDeDados bd;
-
-    public ControleBD() {
-        bd = new BancoDeDados();
+    private BancoDeDados bd;
+    private String serverIPDB;
+    
+    public ControleBD(String serverIPDB) {
+        bd = new BancoDeDados(serverIPDB);
     }
 
     public String gravar(String nome, String senha) {
