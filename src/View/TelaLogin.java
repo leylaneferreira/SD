@@ -21,6 +21,7 @@ public class TelaLogin extends javax.swing.JFrame {
         initComponents();
         pessoa = new Cliente();
         serverIP = pessoa.getIP();
+        System.out.println(serverIP);
     }
 
     /**

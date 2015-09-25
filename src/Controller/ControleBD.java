@@ -8,8 +8,7 @@ import Model.BancoDeDados;
  */
 public class ControleBD {
 
-    private BancoDeDados bd;
-    private String serverIPDB;
+    private final BancoDeDados bd;
     
     public ControleBD(String serverIPDB) {
         bd = new BancoDeDados(serverIPDB);
