@@ -130,8 +130,6 @@ public class TelaCadastro extends javax.swing.JFrame {
     }//GEN-LAST:event_cancelarjButtonActionPerformed
 
     private void cadastrarjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarjButtonActionPerformed
-        //primeiro cadastra
-        
         ControleBD controle = new ControleBD(serverIP);
         String retorno = controle.gravar(usuariojTextField.getText(), senhajTextField.getText());
         System.out.println(retorno);
