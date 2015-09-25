@@ -141,17 +141,18 @@ public class TelaLogin extends javax.swing.JFrame {
     private void loginjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginjButtonActionPerformed
         ControleBD controle = new ControleBD(serverIP);
         if (controle.login(loginjTextField.getText(), senhajTextField.getText())) {
+            Socket conexao = null;
             try {
-                Socket conexao = new Socket(serverIP, 12345);
-                ControleCliente novoCliente = new ControleCliente();
-                novoCliente.setNomeCliente(loginjTextField.getText());
-                TelaChat chat = new TelaChat(novoCliente, conexao);
-                chat.setVisible(true);
-                System.out.println("conectado");
-                this.dispose();
+                conexao = new Socket(serverIP, 12345);
             } catch (Exception e) {
                 e.printStackTrace();
             }
+            ControleCliente novoCliente = new ControleCliente();
+            novoCliente.setNomeCliente(loginjTextField.getText());
+            TelaChat chat = new TelaChat(novoCliente, conexao);
+            chat.setVisible(true);
+            System.out.println("conectado");
+            this.dispose();
         } else {
             loginjTextField.setText("");
             senhajTextField.setText("");

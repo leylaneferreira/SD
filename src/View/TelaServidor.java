@@ -88,7 +88,7 @@ public class TelaServidor extends javax.swing.JFrame {
         servidortextArea.setVisible(true);
         
         //métodos do servidor
-        ControleServidor server = new ControleServidor();
+        ControleServidor server = new ControleServidor(servidortextArea);
         server.start();
     }//GEN-LAST:event_iniciarServerjButtonActionPerformed
 

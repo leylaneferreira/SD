@@ -10,9 +10,11 @@ import java.net.Socket;
 public class EscutaTCP extends Thread {
 
     ServerSocket server;
-
-    public EscutaTCP(ServerSocket server) {
+    private java.awt.TextArea servidorTextArea;
+    
+    public EscutaTCP(ServerSocket server, java.awt.TextArea servidorTextArea) {
         this.server = server;
+        this.servidorTextArea = servidorTextArea;
     }
 
     //thread só pra ficar escutando uma conexão tcp nova
@@ -21,7 +23,7 @@ public class EscutaTCP extends Thread {
         try {
             int portaTCP = 12345;
             Socket conexao = server.accept();
-            ServidorRecebe recebimento = new ServidorRecebe(conexao);
+            ServidorRecebe recebimento = new ServidorRecebe(conexao, servidorTextArea);
             recebimento.start();
         } catch (Exception e) {
             e.printStackTrace();

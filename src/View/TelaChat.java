@@ -85,16 +85,18 @@ public class TelaChat extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void enviarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarButtonActionPerformed
-        try {
-            OutputStream os = conexao.getOutputStream();
-            os.write(cliente.getNomeCliente().getBytes());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        
     }//GEN-LAST:event_enviarButtonActionPerformed
 
     private void inicio() {
         disponiveisList.add(cliente.getNomeCliente(), 0);
+        try {
+            OutputStream os = conexao.getOutputStream();
+            System.out.println(cliente.getNomeCliente());
+            os.write(cliente.getNomeCliente().getBytes());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

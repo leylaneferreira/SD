@@ -1,13 +1,8 @@
 package Controller;
 
-import java.io.InputStream;
-import java.io.PrintStream;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.ServerSocket;
-import java.net.Socket;
-import java.util.ArrayList;
-import javax.swing.JTextArea;
 
 /**
  * @author Iago Rodrigues
@@ -16,10 +11,12 @@ public class EscutaUDP extends Thread {
 
     ServerSocket serverTCP;
     DatagramSocket serverUDP;
-
-    public EscutaUDP(ServerSocket serverTCP, DatagramSocket serverUDP) {
+    private java.awt.TextArea servidorTextArea;
+    
+    public EscutaUDP(ServerSocket serverTCP, DatagramSocket serverUDP, java.awt.TextArea servidorTextArea) {
         this.serverTCP = serverTCP;
         this.serverUDP = serverUDP;
+        this.servidorTextArea = servidorTextArea;
     }
 
     @Override
@@ -40,7 +37,7 @@ public class EscutaUDP extends Thread {
                 serverUDP.close();
 
                 //esperar conexão TCP com cliente
-                EscutaTCP esperaConexaoTCP = new EscutaTCP(serverTCP);
+                EscutaTCP esperaConexaoTCP = new EscutaTCP(serverTCP, servidorTextArea);
                 esperaConexaoTCP.start();
             }
 
