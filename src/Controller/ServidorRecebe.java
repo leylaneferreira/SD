@@ -21,16 +21,11 @@ public class ServidorRecebe extends Thread {
     public synchronized void run() {
         try {
             Scanner s = new Scanner(conexao.getInputStream());
-            while (s.hasNextLine()) {
-                String nomeCliente = s.nextLine();
-                servidorTextArea.setText(servidorTextArea.getText()+nomeCliente);
-                break;
-            }
             
             while (s.hasNextLine()) {
                 //o servidor vai receber uma mensagem e decidir o que irá fazer com ela
                 String nomeCliente = s.nextLine();
-                servidorTextArea.setText(servidorTextArea.getText());
+                servidorTextArea.setText(servidorTextArea.getText()+ nomeCliente);
             }
 
         } catch (Exception e) {

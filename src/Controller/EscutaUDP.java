@@ -9,12 +9,10 @@ import java.net.ServerSocket;
  */
 public class EscutaUDP extends Thread {
 
-    ServerSocket serverTCP;
     DatagramSocket serverUDP;
     private java.awt.TextArea servidorTextArea;
     
-    public EscutaUDP(ServerSocket serverTCP, DatagramSocket serverUDP, java.awt.TextArea servidorTextArea) {
-        this.serverTCP = serverTCP;
+    public EscutaUDP(DatagramSocket serverUDP, java.awt.TextArea servidorTextArea) {
         this.serverUDP = serverUDP;
         this.servidorTextArea = servidorTextArea;
     }
@@ -37,7 +35,7 @@ public class EscutaUDP extends Thread {
                 serverUDP.close();
 
                 //esperar conexão TCP com cliente
-                EscutaTCP esperaConexaoTCP = new EscutaTCP(serverTCP, servidorTextArea);
+                EscutaTCP esperaConexaoTCP = new EscutaTCP(servidorTextArea);
                 esperaConexaoTCP.start();
             }
 
