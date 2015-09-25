@@ -6,7 +6,6 @@
 package View;
 
 import Controller.ControleCliente;
-import java.io.IOException;
 import java.io.OutputStream;
 import java.net.Socket;
 
@@ -42,6 +41,12 @@ public class TelaChat extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
+
+        mensagemTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mensagemTextFieldActionPerformed(evt);
+            }
+        });
 
         enviarButton.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
         enviarButton.setLabel("Enviar");
@@ -93,6 +98,10 @@ public class TelaChat extends javax.swing.JFrame {
             e.printStackTrace();
         }
     }//GEN-LAST:event_enviarButtonActionPerformed
+
+    private void mensagemTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mensagemTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mensagemTextFieldActionPerformed
 
     private void inicio() {
         try {

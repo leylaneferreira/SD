@@ -66,6 +66,9 @@
     <Component class="java.awt.TextArea" name="textoEnviadotextArea">
     </Component>
     <Component class="java.awt.TextField" name="mensagemTextField">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mensagemTextFieldActionPerformed"/>
+      </Events>
     </Component>
     <Component class="java.awt.Button" name="enviarButton">
       <Properties>
