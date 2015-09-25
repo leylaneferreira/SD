@@ -4,7 +4,6 @@ import java.net.Socket;
 import java.util.Scanner;
 
 /**
- *
  * @author Iago Rodrigues
  */
 public class ServidorRecebe extends Thread {
