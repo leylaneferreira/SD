@@ -14,7 +14,6 @@ public class ControleServidor {
     public void start() {
         try {
             DatagramSocket serverUDP = null;
-
             EscutaUDP esperarConexoes = new EscutaUDP(serverUDP, servidorTextArea);
             esperarConexoes.start();
         } catch (Exception e) {
