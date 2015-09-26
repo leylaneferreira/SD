@@ -21,7 +21,7 @@ public class BancoDeDados {
     public boolean abrirConexao() {
         try {
             //conn = DriverManager.getConnection("jdbc:postgresql://192.168.25.4:5432/SD", "postgres", "lidiane");
-            conn = DriverManager.getConnection("jdbc:postgresql://" + serverIPDB + ":5432/SD", "postgres", "lidiane");
+            conn = DriverManager.getConnection("jdbc:postgresql://" + serverIPDB + ":5432/SD", "postgres", "123");
             return true;
         } catch (Exception e) {
             e.printStackTrace();

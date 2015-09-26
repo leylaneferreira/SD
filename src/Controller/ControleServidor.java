@@ -1,8 +1,5 @@
 package Controller;
 
-import java.net.DatagramSocket;
-import java.net.ServerSocket;
-
 public class ControleServidor {
 
     private java.awt.TextArea servidorTextArea;
@@ -13,10 +10,7 @@ public class ControleServidor {
     
     public void start() {
         try {
-            DatagramSocket serverUDP = null;
-
-            EscutaUDP esperarConexoes = new EscutaUDP(serverUDP, servidorTextArea);
-            esperarConexoes.start();
+            EscutaTCP esperaConexao = new EscutaTCP(servidorTextArea);
         } catch (Exception e) {
             e.printStackTrace();
         }
